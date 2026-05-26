@@ -729,7 +729,7 @@ type AdaptiveState
               |> Array.map (fun n ->
                 { Range = fcsRangeToLsp n
                   Code = Some(U2.C2 "FSAC0001")
-                  Severity = Some DiagnosticSeverity.Hint
+                  Severity = Some DiagnosticSeverity.Information
                   Source = Some "FSAC"
                   Message = "Unused open statement"
                   RelatedInformation = None
@@ -769,7 +769,7 @@ type AdaptiveState
                         RelativeName = _relName }) ->
                   { Diagnostic.Range = fcsRangeToLsp range
                     Code = Some(U2.C2 "FSAC0002")
-                    Severity = Some DiagnosticSeverity.Hint
+                    Severity = Some DiagnosticSeverity.Information
                     Source = Some "FSAC"
                     Message = "This qualifier is redundant"
                     RelatedInformation = Some [||]
@@ -787,7 +787,7 @@ type AdaptiveState
               |> Array.map (fun range ->
                 { Diagnostic.Range = fcsRangeToLsp range
                   Code = Some(U2.C2 "FSAC0004")
-                  Severity = Some DiagnosticSeverity.Hint
+                  Severity = Some DiagnosticSeverity.Information
                   Source = Some "FSAC"
                   Message = "Parentheses can be removed"
                   RelatedInformation = Some [||]
@@ -853,7 +853,7 @@ type AdaptiveState
 
                   let severity =
                     match m.Severity with
-                    | FSharp.Analyzers.SDK.Severity.Hint -> DiagnosticSeverity.Hint
+                    | FSharp.Analyzers.SDK.Severity.Hint -> DiagnosticSeverity.Information
                     | FSharp.Analyzers.SDK.Severity.Info -> DiagnosticSeverity.Information
                     | FSharp.Analyzers.SDK.Severity.Warning -> DiagnosticSeverity.Warning
                     | FSharp.Analyzers.SDK.Severity.Error -> DiagnosticSeverity.Error
